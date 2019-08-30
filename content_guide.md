@@ -14,7 +14,7 @@ designing the training content structure, we divided it into three
 categories, namely System Introduction, Fundamental Training, and
 Security Training, as shown in the following figure.
 
-<div align=center><img width="900" src="figures/training_content.png"></div>
+<div align=center><img width="800" src="figures/training_content.png"></div>
 
 ### System Introduction
 
