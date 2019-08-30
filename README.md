@@ -27,7 +27,7 @@ conducted according to the work flow indicated below.
 The training content currently provided with IoTrain-Sim is structured
 as shown in the next figure.
 
-<div align=center><img width="900" src="figures/training_content.png"></div>
+<div align=center><img width="800" src="figures/training_content.png"></div>
 
 
 ## Setup
