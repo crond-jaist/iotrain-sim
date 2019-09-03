@@ -41,7 +41,8 @@ class Storyboard:
     # Menu details
     MENU_HEADER = SEPARATOR2 + '\nTRAINING MENU\n' + SEPARATOR1
     MENU_FOOTER = SEPARATOR1
-    MENU_EXPLANATION = "Input your choice (or '{}' to go back, '{}' to start Cooja, '{}' to quit): ".format(BACK_CHOICE, COOJA_CHOICE, QUIT_CHOICE)
+    MENU_PROMPT = "Enter your choice (or '{}' to go back, '{}' to start Cooja, '{}' to quit): ".format(BACK_CHOICE, COOJA_CHOICE, QUIT_CHOICE)
+    SUBMENU_SUFFIX = "[>]"
 
     # Information messages
     INFO_START_COOJA = 'INFO: Starting Cooja...\n'

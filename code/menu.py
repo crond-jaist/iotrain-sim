@@ -74,16 +74,31 @@ class MenuDisplay(object):
             # Build list with menu data
             current_menu = list(menu)
 
-            # Display the training menu
+            # Display the training menu header
             print(Storyboard.MENU_HEADER)
+
             # Print each menu item
             for menu_key in current_menu:
+
+                # Prepare suffix to denote sub-menus by checking
+                # whether the menu value is a dictionary
+                menu_value = menu[menu_key]
+                if isinstance(menu_value, dict) or isinstance(menu_value, OrderedDict):
+                    submenu_suffix = Storyboard.SUBMENU_SUFFIX
+                else:
+                    submenu_suffix = ""
+
+                # Determine maximum menu item length
+                max_len = len(max(current_menu, key=len))
+
                 # Print item index (starting from 1) and menu text
-                print(" ({}) {}".format(current_menu.index(menu_key) + 1, menu_key))
+                print((" ({}) {:" + str(max_len+1) + "}{}").format(current_menu.index(menu_key) + 1, menu_key, submenu_suffix))
+
+            # Display the training menu footer
             print(Storyboard.MENU_FOOTER)
 
             # Get the menu selection
-            choice = raw_input(Storyboard.MENU_EXPLANATION)
+            choice = raw_input(Storyboard.MENU_PROMPT)
 
             # Back menu choice (go up one level)
             if choice == Storyboard.BACK_CHOICE:
@@ -131,7 +146,7 @@ class MenuDisplay(object):
                         if self.debug: print("DEBUG: Value of selected menu: '{}'".format(menu_value))
 
                         # Check whether the menu value is NOT a dictionary
-                        if not isinstance(menu_value, dict) and not isinstance(menu_value, OrderedDict) :
+                        if not isinstance(menu_value, dict) and not isinstance(menu_value, OrderedDict):
 
                             # Check whether the database directory exists
                             if not os.path.isdir(Storyboard.IOTRAIN_DATABASE_PATH):

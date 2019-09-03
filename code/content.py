@@ -45,10 +45,27 @@ class Content():
             ]))
         ])),
         ('Security Training', OrderedDict([
-            ('Security Introduction', 'security_introduction.pdf'),
-            ('Flooding Attack', 'flooding_attack.pdf'),
-            ('DODAG Version Attack', 'dodag_attack.pdf'),
-            ('Blackhole Attack', 'blackhole_attack.pdf'),
-            ('Decreased Rank Attack', 'rank_attack.pdf'),
+            ('Routing Protocol Introduction', 'routing_introduction.pdf'),
+            ('Security Training Introduction', 'training_introduction.pdf'),
+            ('Flooding Attack', OrderedDict([
+                ('Flooding Attack Tutorial', 'flooding_attack.pdf'),
+                ('Reference Scenario Simulation', 'flooding_attack-reference.csc'),
+                ('Flooding Attack Simulation', 'flooding_attack-simulation.csc')
+            ])),
+            ('DODAG Version Attack', OrderedDict([
+                ('DODAG Version Attack Tutorial', 'dodag_attack.pdf'),
+                ('Reference Scenario Simulation', 'dodag_attack-reference.csc'),
+                ('DODAG Version Attack Simulation', 'dodag_attack-simulation.csc')
+            ])),
+            ('Blackhole Attack', OrderedDict([
+                ('Blackhole Attack Tutorial', 'blackhole_attack.pdf'),
+                ('Reference Scenario Simulation', 'blackhole_attack-reference.csc'),
+                ('Blackhole Attack Simulation', 'blackhole_attack-simulation.csc')
+            ])),
+            ('Decreased Rank Attack', OrderedDict([
+                ('Decreased Rank Attack Tutorial', 'rank_attack.pdf'),
+                ('Reference Scenario Simulation', 'rank_attack-reference.csc'),
+                ('Decreased Rank Attack Simulation', 'rank_attack-simulation.csc')
+            ]))
         ]))
     ])
