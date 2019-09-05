@@ -161,3 +161,19 @@ updated. Please use the currently provided file as a template, and add
 entries to it as needed by using the Python initialization syntax for
 the 'OrderedDict' type of dictionary objects (more details are
 available in the file).
+
+### Additional Training Files
+
+IoTrain-Sim provides support for including additional training files,
+such as precompiled binaries, that can be used in simulations without
+the need to perform any additional setup steps, such as compilation,
+etc. These files are located in the directory 'database/contiki/' of
+the IoTrain-Sim distribution, and are automatically copied in the
+Contiki source code directory when IoTrain-Sim starts, preserving the
+directory structure and even creating new subdirectories if
+necessary. Note that when IoTrain-Sim execution ends, these files are
+removed automatically from the Contiki source code directory, leaving
+it in a "clean" state. Several such firmware binaries are already
+included in the IoTrain-Sim distribution, and are used to run attack
+simulations with malicious nodes without the need to compile the
+firmware at runtime.
