@@ -58,15 +58,22 @@ class MenuDisplay(object):
     def clear_screen(self):
         os.system('clear')
 
-    # Display the training menu for the first time
-    def display_menu_first(self):
+    # Display the top training menu
+    def display_top_menu(self):
 
-        # Clear initialization information and display top-level menu
+        # Clear initialization information
         self.clear_screen()
-        self.show_menus(Content().training_content)
 
-    # Display the training menus (core function)
-    def show_menus(self, menu):
+        # Display the top-level menu
+        try:
+            self.show_menu(Content().training_content)
+
+        # Catch the quit exception, which indicates that the user wants to quit
+        except QuitException:
+            return
+
+    # Show the current training menu; this function works recursively to enable back and forth menu navigation
+    def show_menu(self, menu):
 
         # Loop forever
         while True:
@@ -125,10 +132,9 @@ class MenuDisplay(object):
                 else:
                     self.clear_screen()
 
-            # Quite training choice
+            # Quit training choice
             elif choice == Storyboard.QUIT_CHOICE:
-                print(Storyboard.INFO_QUIT_TRAINING)
-                exit()
+                raise QuitException("Quit")
 
             # Some actual training choice
             else:
@@ -187,7 +193,7 @@ class MenuDisplay(object):
 
                         else:
                             self.clear_screen()
-                            self.show_menus(menu_value)
+                            self.show_menu(menu_value)
                     else:
                         self.clear_screen()
                         print(Storyboard.ERROR_INVALID_CHOICE.format(choice))
@@ -196,3 +202,11 @@ class MenuDisplay(object):
                 else:
                     self.clear_screen()
                     print(Storyboard.ERROR_INVALID_INPUT.format(choice))
+
+ # Class that defines a custom quit exception which indicates that the user wants to quit
+ # This makes possible to exit from the nested recursive calls needed foe menu navigation
+class QuitException(Exception):
+    def __init__(self, value):
+        self.value = value
+    def __str__(self):
+        return repr(self.value)

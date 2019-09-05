@@ -16,19 +16,16 @@ class Storyboard:
     SEPARATOR2 = '========================================================================='
     SEPARATOR3 = '#########################################################################'
 
-
     #############################################################################
-    # Path constants for 'rpl-collect' folder
+    # Path constants for IoTrain-Sim folders
 
-    # IoTrain-Sim paths
+    # Global paths
     IOTRAIN_PATH = '/home/user/iotrain-sim/'
-    IOTRAIN_DATABASE_PATH = IOTRAIN_PATH + 'database/'
-    IOTRAIN_RPL_COLLECT_PATH = IOTRAIN_DATABASE_PATH + 'security_training/rpl-collect'
-    IOTRAIN_RPL_COLLECT_BACKUP = IOTRAIN_RPL_COLLECT_PATH + '-iotrain_backup'
+    CONTIKI_PATH = '/home/user/contiki/'
 
-    # Contiki paths
-    CONTIKI_RPL_COLLECT_PATH = '/home/user/contiki/examples/ipv6/rpl-collect'
-    CONTIKI_RPL_COLLECT_BACKUP = CONTIKI_RPL_COLLECT_PATH + '-iotrain_backup'
+    # Relative paths
+    IOTRAIN_DATABASE_PATH = IOTRAIN_PATH + 'database/'
+    IOTRAIN_CONTIKI_PATH = IOTRAIN_DATABASE_PATH + 'contiki/'
 
     #############################################################################
     # Menu constants
@@ -44,9 +41,18 @@ class Storyboard:
     MENU_PROMPT = "Enter your choice (or '{}' to go back, '{}' to start Cooja, '{}' to quit): ".format(BACK_CHOICE, COOJA_CHOICE, QUIT_CHOICE)
     SUBMENU_SUFFIX = "[>]"
 
+    #############################################################################
+    # Mesage constants
+
+    # General messages
+    STARTUP_BANNER = "IoTrain-Sim v{}: IoT Training System Using the Cooja Network Simulator"
+    STARTUP_COPY = "SETUP: Copying precompiled IoTrain-Sim training binaries to Contiki..."
+    READY_PROMPT = "SETUP: IoTrain-Sim is now ready to start, press Enter to continue..."
+    READY_MESSAGE = "SETUP: IoTrain-Sim is now ready to start, interface will be displayed..."
+    SHUTDOWN_CLEANUP = "\nCLEANUP: Remove precompiled IoTrain-Sim training binaries from Contiki..."
+
     # Information messages
     INFO_START_COOJA = 'INFO: Starting Cooja...\n'
-    INFO_QUIT_TRAINING = '\nINFO: Quit training...\n'
 
     # Error messages
     ERROR_COOJA_FAILED = 'ERROR: Cooja execution failed\n' 

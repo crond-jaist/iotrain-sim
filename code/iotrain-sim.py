@@ -6,27 +6,30 @@
 
 # Standard library imports
 import os
+import time
 
 # Local imports
 from menu import MenuDisplay
-from folders import FolderManager
+from files import FileManager
 from storyboard import Storyboard
 
 # Print banner
 print(Storyboard.SEPARATOR3)
-print('IoTrain-Sim v{}: IoT Training System Using the Cooja Network Simulator'.format(Storyboard.IOTRAIN_SIM_VERSION))
+print(Storyboard.STARTUP_BANNER.format(Storyboard.IOTRAIN_SIM_VERSION))
 print(Storyboard.SEPARATOR3)
 
-# Configure the environment
-#print('* Configure the simulation environment...')
-#folder_manager = FolderManager()
-#folder_manager.backup_rpl_collect()
-#folder_manager.copy_rpl_collect()
+# Prepare the Contiki environment
+print(Storyboard.STARTUP_COPY.format(Storyboard.CONTIKI_PATH))
+FileManager().copy_dir_struct(Storyboard.IOTRAIN_CONTIKI_PATH, Storyboard.CONTIKI_PATH)
 
-# Display the menus 
-#print('* IoTrain-Sim is ready to start the training')
-#print(Storyboard.SEPARATOR2)
-MenuDisplay().display_menu_first()
+# Show prompt before displaying the training menu
+#raw_input(Storyboard.READY_PROMPT)
+print(Storyboard.READY_MESSAGE)
+time.sleep(2)
 
-#print('* Restore the default environment...')
-#folder_manager.restore_rpl_collect()
+# Display the top training menu
+MenuDisplay().display_top_menu()
+
+# Cleanup the Contiki environment
+print(Storyboard.SHUTDOWN_CLEANUP)
+FileManager().delete_dir_struct(Storyboard.IOTRAIN_CONTIKI_PATH, Storyboard.CONTIKI_PATH)
