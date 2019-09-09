@@ -102,8 +102,10 @@ in the distribution.
 
 ## References
 
-[//]: # (For a research background regarding IoTrain-Sim, refer to the
-following paper:)
+For a research background regarding IoTrain-Sim, please refer to the
+following:
+* J. Wang, "IoT Training System Using the Cooja NetworkSimulator",
+  master's thesis, March 2019, http://hdl.handle.net/10119/15885
 
 For a list of contributors to this project, check the file
 CONTRIBUTORS included with the source code.
