@@ -1,4 +1,14 @@
 
+IoTrain-Sim v1.0
+----------------
+* Did a full revision of the training content to improve explanations,
+  structure and file organization
+* Added a graphical user interface (GUI) as the default interface for
+  interacting with the program
+* Added command-line arguments to control which user interface is
+  used: the new GUI (default) or the legacy CLI
+* Various minor bug fixes and improvements
+
 IoTrain-Sim v0.1
 ----------------
 * First public release, which includes training content for
