@@ -133,7 +133,7 @@
 /* Rank of a root node. */
 #define ROOT_RANK(instance)             (instance)->min_hoprankinc
 
-#define INFINITE_RANK                   256                             //change 0xffff to 256
+#define INFINITE_RANK                   256                            //change 0xffff to 256
 
 
 /* Expire DAOs from neighbors that do not respond in this time. (seconds) */
