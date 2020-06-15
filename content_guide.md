@@ -103,12 +103,11 @@ b. Security Training Simulations
 Our approach to security training is two have two simulations per
 training topic: a *reference simulation* that contains the normal
 conditions for a scenario, and an *attack simulation* that includes
-malicious nodes for the same scenario. Trainees are advised to run
-both these simulations, then use Cooja tools, such as the
-`collect-view` application pictured below, to visualize simulation
-conditions and investigate issues related to the attack scenario, such
-as identifying the malicious nodes, determining the effects of the
-attack, and so on.
+malicious nodes for that scenario. Trainees are advised to run both
+these simulations, then use Cooja tools, such as the `collect-view`
+application pictured below, to visualize simulation conditions and
+investigate issues related to the attack scenario, such as identifying
+the malicious nodes, determining the effects of the attack, and so on.
 
 <div align=center><img width="720" src="figures/collect_view_screenshot.png"></div>
 
@@ -140,7 +139,8 @@ of attack. The steps to achieve this are detailed below:
    `udp-sender.c` file within the duplicated Contiki OS directory.
 
 4. Use the malicious mote to replace one of the motes in the reference
-   simulation scenario, to transform it into an attack scenario.
+   simulation scenario in order to transform it into an attack
+   scenario.
 
 Both for reference and attack simulations, the resulting CSC files
 should be saved into the training database. Intermediate users can

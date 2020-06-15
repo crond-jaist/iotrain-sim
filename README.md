@@ -94,10 +94,10 @@ $ ./iotrain-sim/code/iotrain-sim.py
 ```
 
 Once the training interface is displayed as shown in the screenshot
-below, we suggest that you select the menu entry `System Introduction
-> IoTrain-Sim Overview` for an introduction to IoTrain-Sim. To learn
-more about the available training content, and especially about how to
-add new training content to the IoTrain-Sim database, see the
+below, we suggest that you select the menu entry `System Introduction`
+&gt; `IoTrain-Sim Overview` for an introduction to IoTrain-Sim. To
+learn more about the available training content, and especially about
+how to add new training content to the IoTrain-Sim database, see the
 [Training Content Guide](content_guide.md) that is also available in
 the distribution.
 
