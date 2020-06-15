@@ -195,11 +195,11 @@ class GUI(object):
         window.geometry(WINDOW_SIZE)
         window.title("IoTrain-Sim")
         menubar = tk.Menu(window)
-        iotrain_sim_menu = tk.Menu(menubar, tearoff=0) # Disable tearoff (detachable menu) feature
-        iotrain_sim_menu.add_command(label=Storyboard.BUTTON_START_COOJA, command=cooja_callback)
-        iotrain_sim_menu.add_separator()
-        iotrain_sim_menu.add_command(label=Storyboard.BUTTON_QUIT, command=window.quit)
-        menubar.add_cascade(label="IoTrain-Sim", menu=iotrain_sim_menu)
+        actions_menu = tk.Menu(menubar, tearoff=0) # Disable tearoff (detachable menu) feature
+        actions_menu.add_command(label=Storyboard.BUTTON_START_COOJA, command=cooja_callback)
+        actions_menu.add_separator()
+        actions_menu.add_command(label=Storyboard.BUTTON_QUIT, command=window.quit)
+        menubar.add_cascade(label="Actions", menu=actions_menu)
         window.config(menu=menubar)
 
         # Start the window loop
