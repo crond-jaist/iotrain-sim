@@ -1,6 +1,6 @@
 
 #############################################################################
-# Display the training menus of IoTrain-Sim
+# Display the CLI of IoTrain-Sim
 #############################################################################
 
 # Standard library imports
@@ -13,39 +13,30 @@ from content import Content
 from cooja import CoojaManager
 from storyboard import Storyboard
 
-# Class that displays training menus
-class MenuDisplay(object):
+# Class that displays CLI training menus
+class CLI(object):
 
     # Enable debug messages
     debug = False
 
-    # Class variable needed to return a value from 'find_file'
-    file_path = None
+    # Find the full path for the file identified by the file name argument
+    def find_file(self, database_path, file_name):
 
-    # Find a file's full path based on the file name
-    # NOTE: Only the last matching path can be retrieved from 'self.file_path'
-    def find_file(self, database_path, filename):
+        if not file_name:
+            return None
 
-        # Try to find item in the database directory structure
-        for item in os.listdir(database_path):
-            item_path = os.path.join(database_path, item)
+        file_list = []
 
-            # For directories, we do recursive search
-            if os.path.isdir(item_path):
-                self.find_file(item_path, filename)
+        # Traverse database_path to find all the files and add them to the list
+        for home, _, files in os.walk(database_path):
+            for full_name in files:
+                file_list.append(os.path.join(home, full_name))
 
-            # For files, we check whether the item matches
-            elif os.path.isfile(item_path):
-                if filename == item:
-                    # On match, assign the found value to class variable
-                    self.file_path = item_path
+        for file_path in file_list:
+            if file_name in file_path:
+                return file_path
 
-    # Verify whether a file has a certain extension (argument must include the separating dot)
-    def check_extension(self, filename, extension):
-        if os.path.splitext(filename)[1] == extension:
-            return True
-        else:
-            return False
+        return None
 
     # Check whether a choice is in the menu range
     def is_in_menu_range(self, choice, menu):
@@ -56,7 +47,7 @@ class MenuDisplay(object):
 
     # Clear the screen when displaying CLI menu
     def clear_screen(self):
-        os.system('clear')
+        os.system("clear")
 
     # Display the top training menu
     def display_top_menu(self):
@@ -159,28 +150,26 @@ class MenuDisplay(object):
                                 print(Storyboard.ERROR_DATABASE_NOT_FOUND.format(Storyboard.IOTRAIN_DATABASE_PATH))
                                 continue
 
-                            # Retrieve the full path for the file specified in 'menu_value' and 
-                            # store it in the class variable 'self.file_path'
+                            # Retrieve the full path for the file specified in "menu_value"
                             if self.debug: print("DEBUG: Find full path for database file: '{}'...".format(menu_value))
-                            self.find_file(Storyboard.IOTRAIN_DATABASE_PATH, menu_value)
+                            file_path = self.find_file(Storyboard.IOTRAIN_DATABASE_PATH, menu_value)
 
                             # Check whether a corresponding file was actually found
-                            if not self.file_path:
+                            if not file_path:
                                 print(Storyboard.ERROR_FILE_NOT_LOCATED.format(menu_value))
 
                             # PDF files are opened via the webbrowser library
-                            elif self.check_extension(self.file_path, '.pdf'):
-                                if self.debug: print("DEBUG: Open PDF file: '{}'...".format(self.file_path))
-                                # Make sure to add the 'file://' prefix, or it will not work on macOS
-                                # TODO: Is there any way to check if the command was successful or not?
-                                webbrowser.open('file://' + self.file_path)
+                            elif os.path.splitext(file_path)[1] == ".pdf":
+                                if self.debug: print("DEBUG: Open PDF file: '{}'...".format(file_path))
+                                # Make sure to add the "file://" prefix, or it will not work on macOS
+                                # NOTE: There seems to be no way to catch errors in webbrowser.open()
+                                webbrowser.open("file://" + file_path)
 
                             # CSC files are opened via a helper function
-                            elif self.check_extension(self.file_path, '.csc'):
-
-                                # Use helper class to start Cooja
-                                if self.debug: print("DEBUG: Open CSC file: '{}'...".format(self.file_path))
-                                exit_status = CoojaManager().open_csc_file(self.file_path)
+                            elif os.path.splitext(file_path)[1] == ".csc":
+                                if self.debug: print("DEBUG: Open CSC file: '{}'...".format(file_path))
+                                # Use helper class to open CSC file
+                                exit_status = CoojaManager().open_csc_file(file_path)
                                 # In case of error print a message, otherwise clear the screen
                                 if exit_status != 0:
                                     print(Storyboard.ERROR_CSC_FAILED)
@@ -189,7 +178,7 @@ class MenuDisplay(object):
 
                             # Otherwise display an error
                             else:
-                                print(Storyboard.ERROR_UNKNOWN_FILE_TYPE.format(self.file_path))
+                                print(Storyboard.ERROR_UNKNOWN_FILE_TYPE.format(file_path))
 
                         else:
                             self.clear_screen()
@@ -204,7 +193,7 @@ class MenuDisplay(object):
                     print(Storyboard.ERROR_INVALID_INPUT.format(choice))
 
  # Class that defines a custom quit exception which indicates that the user wants to quit
- # This makes possible to exit from the nested recursive calls needed foe menu navigation
+ # This makes possible to exit from the nested recursive calls needed for menu navigation
 class QuitException(Exception):
     def __init__(self, value):
         self.value = value

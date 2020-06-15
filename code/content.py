@@ -17,55 +17,68 @@ class Content():
 
     # Initialize training content as an 'OrderedDict' structure
     training_content = OrderedDict([
-        ('System Introduction', 'system_introduction.pdf'),
+        ('System Introduction', OrderedDict([
+            ('IoTrain-Sim Overview', 'iotrain-sim_overview.pdf'),
+            ('Background on IoT', 'background_iot.pdf')
+        ])),
         ('Fundamental Training', OrderedDict([
             ('Single Node', OrderedDict([
                 ('Basics of Contiki & Cooja', OrderedDict([
-                    ('Contiki Tutorial', 'basics_contiki.pdf'),
+                    ('Contiki Tutorial', 'contiki_tutorial.pdf'),
                     ('Hello World Simulation', 'hello-world.csc'),
-                    ('Cooja Tutorial', 'basics_cooja.pdf')
+                    ('Cooja Tutorial', 'cooja_tutorial.pdf')
                 ])),
                 ('Actuation & Control', OrderedDict([
-                    ('Actuation & Control Introduction', 'actuation_control_introduction.pdf'),
-                    ('LED Tutorial', 'led.pdf'),
+                    ('Overview', 'actuation_control_overview.pdf'),
+                    ('LED Tutorial', 'led_tutorial.pdf'),
                     ('LED Simulation', 'led.csc'),
-                    ('Button Tutorial', 'button.pdf'),
+                    ('Button Tutorial', 'button_tutorial.pdf'),
                     ('Button Simulation', 'button.csc'),
-                    ('Timer Tutorial', 'timer.pdf'),
+                    ('Timer Tutorial', 'timer_tutorial.pdf'),
                     ('Timer Simulation', 'timer.csc')
                 ])),
                 ('Sensing', OrderedDict([
-                    ('Sensor Tutorial', 'sensor.pdf'),
+                    ('Sensor Tutorial', 'sensor_tutorial.pdf'),
                     ('Sensor Simulation', 'sensor.csc')
                 ]))
             ])),
             ('Networking', OrderedDict([
-                ('Broadcast Tutorial', 'broadcast.pdf'),
-                ('Broadcast Simulation', 'broadcast.csc')
+                ('Communication', OrderedDict([
+                    ('Broadcast Tutorial', 'broadcast_tutorial.pdf'),
+                    ('Broadcast Simulation', 'broadcast.csc')
+                ]))
             ]))
         ])),
         ('Security Training', OrderedDict([
-            ('Routing Protocol Introduction', 'routing_introduction.pdf'),
-            ('Security Training Introduction', 'training_introduction.pdf'),
-            ('Flooding Attack', OrderedDict([
-                ('Flooding Attack Tutorial', 'flooding_attack.pdf'),
-                ('Reference Scenario Simulation', 'flooding_attack-reference.csc'),
-                ('Flooding Attack Simulation', 'flooding_attack-simulation.csc')
+            ('Introduction', OrderedDict([
+                ('Security Training Tutorial', 'security_training_tutorial.pdf'),
+                ('Routing Protocol Overview', 'routing_protocol_overview.pdf')
             ])),
-            ('DODAG Version Attack', OrderedDict([
-                ('DODAG Version Attack Tutorial', 'dodag_attack.pdf'),
-                ('Reference Scenario Simulation', 'dodag_attack-reference.csc'),
-                ('DODAG Version Attack Simulation', 'dodag_attack-simulation.csc')
+            ('Resource Attacks', OrderedDict([
+                ('Direct Attacks', OrderedDict([
+                    ('Flooding Attack Tutorial', 'flooding_attack_tutorial.pdf'),
+                    ('Reference Scenario Simulation', 'flooding_attack-reference.csc'),
+                    ('Flooding Attack Simulation', 'flooding_attack-simulation.csc')
+                ])),
+                ('Indirect Attacks', OrderedDict([
+                    ('DODAG Version Attack Tutorial', 'dodag_attack_tutorial.pdf'),
+                    ('Reference Scenario Simulation', 'dodag_attack-reference.csc'),
+                    ('DODAG Version Attack Simulation', 'dodag_attack-simulation.csc')
+                ])),
             ])),
-            ('Blackhole Attack', OrderedDict([
-                ('Blackhole Attack Tutorial', 'blackhole_attack.pdf'),
-                ('Reference Scenario Simulation', 'blackhole_attack-reference.csc'),
-                ('Blackhole Attack Simulation', 'blackhole_attack-simulation.csc')
+            ('Topology Attacks', OrderedDict([
+                ('Isolation Attacks', OrderedDict([
+                    ('Blackhole Attack Tutorial', 'blackhole_attack_tutorial.pdf'),
+                    ('Reference Scenario Simulation', 'blackhole_attack-reference.csc'),
+                    ('Blackhole Attack Simulation', 'blackhole_attack-simulation.csc')
+                ]))
             ])),
-            ('Decreased Rank Attack', OrderedDict([
-                ('Decreased Rank Attack Tutorial', 'rank_attack.pdf'),
-                ('Reference Scenario Simulation', 'rank_attack-reference.csc'),
-                ('Decreased Rank Attack Simulation', 'rank_attack-simulation.csc')
+            ('Traffic Attacks', OrderedDict([
+                ('Misappropriation Attacks', OrderedDict([
+                    ('Decreased Rank Attack Tutorial', 'rank_attack_tutorial.pdf'),
+                    ('Reference Scenario Simulation', 'rank_attack-reference.csc'),
+                    ('Decreased Rank Attack Simulation', 'rank_attack-simulation.csc')
+                ]))
             ]))
         ]))
     ])
