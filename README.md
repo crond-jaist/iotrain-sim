@@ -101,7 +101,7 @@ how to add new training content to the IoTrain-Sim database, see the
 [Training Content Guide](content_guide.md) that is also available in
 the distribution.
 
-<div align=center><img src="figures/gui.png"></div>
+<div align=center><img src="figures/gui_screenshot.png"></div>
 
 **_NOTE:_** In addition to the graphical user interface (GUI) above,
   the legacy command-line interface (CLI) can also be used by
