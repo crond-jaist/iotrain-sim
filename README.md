@@ -6,7 +6,7 @@ Cooja network simulator and Contiki OS for IoT education and training
 purposes. The system provides training tutorials and ready-to-use
 simulations making it possible for learners to easily master the
 basics of IoT and IoT security. The included hands-on practice with
-simulated IoT devices helps learners be ready to implement real IoT
+simulated IoT devices helps learners get ready to implement real IoT
 applications in the future.
 
 An overview of the architecture of IoTrain-Sim is provided in the
@@ -32,7 +32,7 @@ as shown below.
 
 ## Setup
 
-The following steps are necessary in order to setup IoTrain-Sim:
+The following steps are necessary in order to set up IoTrain-Sim:
 
 1. **Download Instant Contiki**: Instant Contiki is a virtual machine
    (VM) image provided by Contiki developers that contains all the
@@ -46,24 +46,24 @@ The following steps are necessary in order to setup IoTrain-Sim:
    >[Instant Contiki 3.0 Repository](https://sourceforge.net/projects/contiki/files/Instant%20Contiki/Instant%20Contiki%203.0/)
 
 2. **Install VMware Virtualization Software**: The downloaded Instant
-   Contiki file is a VMware virtual machine image, therefore the
-   VMware virtualization software is needed to run it. VMware
-   Workstation Player (formerly VMware Player) is such a solution for
-   Windows and Linux, and VMware Fusion is the equivalent for
-   macOS. See the links below for download and license information.
+   Contiki file is a VMware virtual machine image, hence the VMware
+   virtualization software is needed to run it. VMware Workstation
+   Player (formerly VMware Player) is such a solution for Windows and
+   Linux, and VMware Fusion is the equivalent for macOS. See the links
+   below for download and license information.
 
    >[VMware Workstation Player for Windows/Linux](https://www.vmware.com/products/workstation-player.html)<br>
    >[VMware Fusion for macOS](https://www.vmware.com/products/fusion.html)
 
-3. **Start Instant Contiki**: In order to start Instant Contiki, open
-   the main VM image file (the one with extension `.vmx`) from the
-   extracted Instant Contiki archive in the VMware program and power
-   it on. Wait for the machine to boot up, then log in; the default
-   password is "user", but you should change it after the first
-   login. According to Contiki developers, it is necessary to prepare
-   the submodules in the OS source code before being able to run
-   Cooja. To do that, open a terminal in the Instant Contiki VM and
-   run the command below:
+3. **Start Instant Contiki**: In order to start Instant Contiki, use
+   the VMware program to open the main VM image file (the one with
+   extension `.vmx`) from the extracted Instant Contiki archive and
+   power it on. Wait for the machine to boot up, then log in; the
+   default password is "user", but for security reasons you should
+   change it after the first login. According to the Contiki
+   developers, it is necessary to prepare the submodules in the OS
+   source code before being able to run Cooja. To do that, open a
+   terminal in the Instant Contiki VM and run the command below:
 
    ```
    cd contiki && git submodule update --init && cd ..
@@ -73,9 +73,9 @@ The following steps are necessary in order to setup IoTrain-Sim:
    Contiki VM download the latest version of the software from the
    [releases](https://github.com/crond-jaist/iotrain-sim/releases)
    page on GitHub. The IoTrain-Sim code assumes that the archive will
-   be extracted in the directory `/home/user/iotrain-sim/`. In case
+   be extracted into the directory `/home/user/iotrain-sim/`. In case
    you use a different location, update accordingly the variable
-   `IOTRAIN_PATH` in the file `code/storyboard.py`. Then install the
+   `IOTRAIN_PATH` in the file `code/storyboard.py`. Next, install the
    Python Tkinter toolkit used for the IoTrain-Sim GUI by running the
    command below:
 
@@ -94,16 +94,16 @@ $ ./iotrain-sim/code/iotrain-sim.py
 ```
 
 Once the training interface is displayed as shown in the screenshot
-below, we suggest that you select the menu entry `IoTrain-Sim
-Overview` for an introduction to IoTrain-Sim. To learn more about the
-available training content, and especially about how to add new
-training content to the IoTrain-Sim database, see the [Training
-Content Guide](content_guide.md) that is also available in the
-distribution.
+below, we suggest that you select the menu entry `System Introduction
+> IoTrain-Sim Overview` for an introduction to IoTrain-Sim. To learn
+more about the available training content, and especially about how to
+add new training content to the IoTrain-Sim database, see the
+[Training Content Guide](content_guide.md) that is also available in
+the distribution.
 
 <div align=center><img src="figures/gui.png"></div>
 
-**_NOTE:_** In addition to the graphical-user interface (GUI) above,
+**_NOTE:_** In addition to the graphical user interface (GUI) above,
   the legacy command-line interface (CLI) can also be used by
   providing the option `--cli` when starting IoTrain-Sim.
 

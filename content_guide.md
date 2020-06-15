@@ -1,9 +1,9 @@
 
 # Training Content Guide
 
-This file includes information about the existing training content
-included with IoTrain-Sim, as well as details about the procedure of
-adding new training content to the system.
+This file includes information about the training content included
+with IoTrain-Sim, as well as details about the procedure of adding new
+training content to the system.
 
 
 ## Content Structure
@@ -20,7 +20,7 @@ categories, namely `System Introduction`, `Fundamental Training`, and
 ### System Introduction
 
 The system introduction is aimed at all users who are using
-IoTrain-Sim for the first time. It first provides an overview of the
+IoTrain-Sim for the first time. It begins with an overview of the
 system itself, then covers the background of IoT technologies and IoT
 security.
 
@@ -28,13 +28,12 @@ security.
 
 The fundamental training category is further divided into two areas:
 `Single Node` and `Networking`. The first content area starts by
-presenting the basics of Contiki OS and Cooja network simulator,
-including a `Hello World Simulation` tutorial. Then, several
-Contiki-based IoT devices are introduced, such as actuators,
-controllers, and sensors. The second content area focuses on network
-communication techniques with application to IoT devices, with
-examples of broadcast communication, which is often used for sensor
-devices.
+presenting the basics of Contiki OS and Cooja, including a `Hello
+World Simulation` tutorial. Several Contiki-based IoT devices are
+introduced next, such as actuators, controllers, and sensors. The
+second content area focuses on network communication techniques
+employed by IoT devices, with examples of broadcast communication,
+which is often used by sensor devices.
 
 ### Security Training
 
@@ -66,25 +65,25 @@ is **PDF** (Portable Document Format), which is used for training
 tutorials. The second type is **CSC** (Cooja Simulation
 Configuration), which is a file type that can be opened into the Cooja
 network simulator. The third type is **C** language source code, for
-original and modified Contiki files that we provide for implementing
-attacks, and can also be created by advanced users under the guidance
-of tutorials.
+original and modified Contiki files that we provide as attack
+implementations, which can also be created by advanced users under the
+guidance of tutorials.
 
 #### Training Tutorials
 
 To create tutorials, developers first need to study a variety of
 materials, then create slides in PDF format (for instance, by
 exporting them from Microsoft PowerPoint), and finally store these PDF
-files in the training database. This creation procedure is illustrated
-below.
+files in the training database. This tutorial creation procedure is
+illustrated below.
 
 <div align=center><img src="figures/tutorial_creation.png"></div>
 
 #### Simulation Files
 
 Below we provide simulation implementation suggestions for the two
-categories of training content in IoTrain-Sim, fundamental training
-and security training.
+categories of training content included in IoTrain-Sim, fundamental
+training and security training.
 
 a. Fundamental Training Simulations
 
@@ -104,11 +103,12 @@ b. Security Training Simulations
 Our approach to security training is two have two simulations per
 training topic: a *reference simulation* that contains the normal
 conditions for a scenario, and an *attack simulation* that includes
-malicious nodes. Trainees are advised to run both these simulations,
-then use Cooja tools, such as the `collect-view` application pictured
-below, to visualize simulation conditions and investigate issues
-related to the attack scenario, such as identifying the malicious
-nodes, determining the effects of the attack, and so on.
+malicious nodes for the same scenario. Trainees are advised to run
+both these simulations, then use Cooja tools, such as the
+`collect-view` application pictured below, to visualize simulation
+conditions and investigate issues related to the attack scenario, such
+as identifying the malicious nodes, determining the effects of the
+attack, and so on.
 
 <div align=center><img width="720" src="figures/collect_view_screenshot.png"></div>
 
@@ -125,7 +125,7 @@ appropriate files must be compiled in Cooja and used to create
 simulated motes.
 
 For creating an attack simulation, we recommend to start with a
-reference simulation scenario, and replace a source mote in the
+reference simulation scenario, then replace a source mote in the
 reference simulation with a malicious mote that will perform some kind
 of attack. The steps to achieve this are detailed below:
 
@@ -139,30 +139,30 @@ of attack. The steps to achieve this are detailed below:
 3. Create a new malicious mote in Cooja, for instance by compiling the
    `udp-sender.c` file within the duplicated Contiki OS directory.
 
-4. Add the malicious mote to the reference simulation scenario to
-   transform it into an attack scenario.
+4. Use the malicious mote to replace one of the motes in the reference
+   simulation scenario, to transform it into an attack scenario.
 
 Both for reference and attack simulations, the resulting CSC files
 should be saved into the training database. Intermediate users can
 view these simulations in order to gain insight into an attack, while
 advanced trainees could be tasked with modifying Contiki source code
-in order to implement attacks or even defense mechanisms by themselves
-under the guidance of tutorials.
+in order to implement by themselves attacks and even defense
+mechanisms under the guidance of tutorials.
 
 #### Additional Training Files
 
 IoTrain-Sim provides support for including additional training files,
 such as precompiled binaries, that can be used in simulations without
-the need to perform any additional setup steps. For this purpose, all
-files located in the directory `database/contiki/` of IoTrain-Sim are
+the need to perform any compilation. For this purpose, all the files
+located in the directory `database/contiki/` of IoTrain-Sim are
 automatically copied in the Contiki source code directory when the
 program starts, preserving the directory structure and even creating
 new subdirectories if necessary. When IoTrain-Sim execution ends,
 these files are removed automatically from the Contiki source code
 directory, leaving it in a "clean" state. Several such firmware
 binaries are already included in the IoTrain-Sim distribution, and are
-used to run attack simulations with malicious nodes without the need
-to compile the firmware at runtime.
+used to run example attack simulations with malicious motes without
+the need to compile the firmware.
 
 
 ### 2. File Registration
@@ -170,6 +170,6 @@ to compile the firmware at runtime.
 Once the new training content files are created and added into the
 training database directory, they need to be registered with
 IoTrain-Sim, so that they are displayed in its user interface. To do
-this update the file `code/content.py` by adding entries to it as
+this, update the file `code/content.py` by adding entries to it as
 needed using the Python initialization syntax for the 'OrderedDict'
 type of dictionary objects, as illustrated in the file.
