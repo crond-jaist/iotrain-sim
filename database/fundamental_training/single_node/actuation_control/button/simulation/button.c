@@ -2,11 +2,11 @@
 #include "dev/leds.h"
 #include "dev/button-sensor.h"
 #include <stdio.h>
-/*-------------------------------------------------*/
-PROCESS(button_process, "button process"); 
+/*---------------------------------------------------------------------------*/
+PROCESS(button_process, "button process");
 AUTOSTART_PROCESSES(&button_process);
-/*-------------------------------------------------*/
-PROCESS_THREAD(button_process, ev, data) 
+/*---------------------------------------------------------------------------*/
+PROCESS_THREAD(button_process, ev, data)
 {
   PROCESS_BEGIN();
   SENSORS_ACTIVATE(button_sensor);
