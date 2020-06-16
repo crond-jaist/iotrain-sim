@@ -1,6 +1,8 @@
 
 IoTrain-Sim v1.0
 ----------------
+* Added C files with solutions for most of the exercises, so that
+  learners can verify by themselves their answers
 * Did a full revision of the training content to improve explanations,
   structure and file organization
 * Added a graphical user interface (GUI) as the default interface for
