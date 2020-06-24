@@ -1,5 +1,5 @@
 
-# IoTrain-Sim: IoT Training System Using the Cooja Simulator
+# IoTrain-Sim: IoT Training System Using the Cooja Network Simulator
 
 IoTrain-Sim is an integrated training system that makes use of the
 Cooja network simulator and Contiki OS for IoT education and training
@@ -40,8 +40,8 @@ The following steps are necessary in order to set up IoTrain-Sim:
    our system is to install it into the Instant Contiki VM. Use the
    link below to download the Instant Contiki 3.0 VM image (note that
    older VM versions are not compatible with the current IoTrain-Sim
-   content). After downloading the archive, which is has over 3 GB,
-   unzip it and proceed to the next step.
+   content). After downloading the archive, which has over 3 GB, unzip
+   it and proceed to the next step.
 
    >[Instant Contiki 3.0 Repository](https://sourceforge.net/projects/contiki/files/Instant%20Contiki/Instant%20Contiki%203.0/)
 
@@ -63,7 +63,7 @@ The following steps are necessary in order to set up IoTrain-Sim:
    change it after the first login. According to the Contiki
    developers, it is necessary to prepare the submodules in the OS
    source code before being able to run Cooja. To do that, open a
-   terminal in the Instant Contiki VM and run the command below:
+   terminal in the Instant Contiki VM and run the following command:
 
    ```
    cd contiki && git submodule update --init && cd ..
@@ -116,5 +116,5 @@ following document:
 * J. Wang, "IoT Training System Using the Cooja Network Simulator",
   Master's thesis, March 2019. https://hdl.handle.net/10119/15885
 
-For a list of contributors to this project, please check the file
+For a list of contributors to this project, check the file
 CONTRIBUTORS included with the source code.
